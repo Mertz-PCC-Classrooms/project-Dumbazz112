@@ -56,7 +56,7 @@ if __name__ == "__main__":
         # meaning that json_file_path has a value of None.
             import json
 
-            self.party = {}
+            self.party = []
 
             if json_file_path is not None:
 
@@ -64,17 +64,15 @@ if __name__ == "__main__":
                     my_dex = json.load(reader_my_dex)
 
                 for pokedict in my_dex:
-                    self.name = pokedict['name']
-                    self.hp = int(pokedict['hp'])
-                    self.energy_type = pokedict['types']
-                    self.weakness = pokedict['weaknesses']
-                    self.resistence = pokedict['resistences']
-                    self.moves = pokedict['attacks']
+                    name = pokedict['name']
+                    hp = int(pokedict['hp'])
+                    energy_type = pokedict['types']
+                    weakness = pokedict['weaknesses']
+                    resistence = pokedict['resistences']
+                    moves = pokedict['attacks']
 
-                # for name in pokedict:
-                #     for self.name in self.party:
-                #         if self.name == name:
-                #             self.party.append(self)
+                    my_pokemon = Pokemon(name, hp, energy_type, weakness, resistence, moves)   
+                    self.party.append(my_pokemon)
 
                 # self.party = Pokemon(pokedict).append
                 # my_party = PokeCardDex('myParty.json')
@@ -82,12 +80,6 @@ if __name__ == "__main__":
             
 
             ## pass in order variable??? 
-
-#     Example
-#     my_dex = PokeCardDex('pokemon_party.json')
-#     rival_dex = PokeCardDex()
-#     pikachu = Pokemon('Pikachu', 100, 'electric', None, None, (('electric charge', 30),))
-#     rival_dex.add_to_party(pikachu)
         
         def set_order(self, order):
             #outer loop int 
@@ -97,7 +89,7 @@ if __name__ == "__main__":
             for name in order:
                 for self.name in party:
                     if self.name == name:
-                        temp_list.append(self)
+                        temp_list.append(party)
                 
             party = temp_list
             # print(party)
