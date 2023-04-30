@@ -38,8 +38,11 @@ class Pokemon():
 
                                  
     def __str__(self):
-        return f"Pokemon: {self.name} with {self.hp} HP left"
-
+        if self.hp > 0:
+             return f"Pokemon: {self.name} with {self.hp} HP left"
+        elif self.hp <= 0:
+             return f"Pokemon: {self.name} has fainted"    
+        
 poliwag = Pokemon('Poliwag', 13, 60, 'water', None, None, ('Water Gun', 30))
 starmie = Pokemon('Starmie', 28, 90, 'psychic', None, None, ('Star Freeze', 40))
 
