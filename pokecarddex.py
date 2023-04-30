@@ -70,7 +70,24 @@ if __name__ == "__main__":
                     self.weakness = pokedict['weaknesses']
                     self.resistence = pokedict['resistences']
                     self.moves = pokedict['attacks']
+
+                # for name in pokedict:
+                #     for self.name in self.party:
+                #         if self.name == name:
+                #             self.party.append(self)
+
+                # self.party = Pokemon(pokedict).append
+                # my_party = PokeCardDex('myParty.json')
+                # my_party = self.party
             
+
+            ## pass in order variable??? 
+
+#     Example
+#     my_dex = PokeCardDex('pokemon_party.json')
+#     rival_dex = PokeCardDex()
+#     pikachu = Pokemon('Pikachu', 100, 'electric', None, None, (('electric charge', 30),))
+#     rival_dex.add_to_party(pikachu)
         
         def set_order(self, order):
             #outer loop int 
@@ -78,12 +95,12 @@ if __name__ == "__main__":
             temp_list=[]
 
             for name in order:
-                for self.name in battle_party:
+                for self.name in party:
                     if self.name == name:
                         temp_list.append(self)
                 
-            battle_party = temp_list
-            print(battle_party)
+            party = temp_list
+            # print(party)
             pass
 
 
