@@ -11,19 +11,16 @@ class Pokemon():
         self.is_fainted = False
         pass
 
-    def take_damage(self, damage_amount, engery_type):
-
-        self.hp = self.hp - (damage_amount * 2(weakness) - self.resistance)
-
-
-            # if self.weakness == energy_type:
-            #      self.hp = self.hp - (damage_amount*2) - resist_amount
-
-            # # elif self.resistence[0] == #$insert(energy_type):
-            #     self.hp = (self.hp + resist_amount) - damage_amount
-
-            # elif self.hp = self.hp - damage_amount
-
+    def take_damage(self, damage_amount):
+        self.hp = self.hp - damage_amount - self.resistance[1]
+            
+    def __str__(self):
+            if self.hp > 0:
+                return f"Pokemon: {self.name} with {self.hp} HP left"
+            elif self.hp <= 0:
+                return f"Pokemon: {self.name} has fainted"     
+            pass
+    
 #     my_dex = [
 #         # Name: start_hp, energy_type, weakness, resistence, moves
 #          'Skarmory', 60, 'metal', 'fire', ('grass', 30), [('Steel Beak', 20),('Air Cutter', 5)],
@@ -90,26 +87,20 @@ class PokeCardDex():
                     temp_list.append(pokemon)
             
         self.party = temp_list
-        # print(party)
         pass
 
 
     def battle(self, my_party, challenger_party):
-        # while challenger_party.hp > 0 and my_party.hp > 0:
-        #     my_party.take_damage(challenger_party.moves[1], challenger_party.energy_type, challenger_party.resistence[1])
-        #     challenger_party.take_damage(my_party.moves[1], my_party.energy_type, my_party.resistence[1])
-        #     my_party.take_damage(challenger_party.moves[2], challenger_party.energy_type, challenger_party.resistence[1])
-        #     challenger_party.take_damage(my_party.moves[2], my_party.energy_type, my_party.resistence[1])
+
+        while challenger_party.hp > 0 and my_party.hp > 0:
+            my_party.take_damage(challenger_party.moves[1])
+            challenger_party.take_damage(my_party.moves[1])
+            my_party.take_damage(challenger_party.moves[2])
+            challenger_party.take_damage(my_party.moves[2])
+
         # else challenger_party.hp <= 0 or my_party.hp <= 0:
             # $insert new pokemon...break???
     
-        pass
-
-    def __str__(self):
-        if self.hp > 0:
-             return f"Pokemon: {self.name} with {self.hp} HP left"
-        elif self.hp <= 0:
-             return f"Pokemon: {self.name} has fainted"     
         pass
 
     def heal_party(self):
